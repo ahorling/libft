@@ -6,14 +6,14 @@
 /*   By: alexander <alexander@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/05 17:19:19 by alexander     #+#    #+#                 */
-/*   Updated: 2021/04/11 19:54:32 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/13 00:02:40 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
-		return (c);
+		return (1);
 	else
 		return (0);
 }

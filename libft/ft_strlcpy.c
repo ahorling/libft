@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 12:31:50 by ahorling      #+#    #+#                 */
-/*   Updated: 2020/12/04 11:23:26 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 22:21:50 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,17 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t	i;
-	int		srclen;
+	size_t	srclen;
 
-	i = 0;
+	if (dest == NULL || src == NULL)
+		return (0);
 	srclen = ft_strlen(src);
-	if (size == 0)
-		return (srclen);
-	while (i < size - 1)
+	if (srclen < size)
+		ft_memcpy(dest, src, (srclen + 1));
+	else if (size != 0)
 	{
-		if (*src != '\0')
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		else
-			break ;
+		ft_memcpy(dest, src, size - 1);
+		dest[size - 1] = '\0';
 	}
-	dest[i] = '\0';
 	return (srclen);
 }

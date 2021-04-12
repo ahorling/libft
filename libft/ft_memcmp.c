@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 11:09:08 by ahorling      #+#    #+#                 */
-/*   Updated: 2021/04/11 20:06:03 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 21:51:24 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,16 @@
 
 int	ft_memcmp(const void *str1, const void *str2, size_t size)
 {
-	char	*block1;
-	char	*block2;
-	int		comparevalue;
 	size_t	i;
+	char	*s1;
+	char	*s2;
 
-	block1 = (char *)str1;
-	block2 = (char *)str2;
-	comparevalue = 0;
+	s1 = (char *)str1;
+	s2 = (char *)str2;
 	i = 0;
-	if (str1 == str2)
-		return (comparevalue);
-	while (i <= size)
-	{
-		if (block1[i] != block2[i])
-		{
-			comparevalue = (block1[i] - block2[i]);
-			return (comparevalue);
-		}
-		else
-		{
-			i++;
-		}
-	}
-	return (comparevalue);
+	if (s1 == s2 || size == 0)
+		return (0);
+	while (i < size - 1 && s1[i] == s2[i])
+		i++;
+	return (((unsigned char *)str1)[i] - ((unsigned char *)str2)[i]);
 }

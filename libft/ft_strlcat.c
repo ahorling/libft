@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 14:07:44 by ahorling      #+#    #+#                 */
-/*   Updated: 2020/12/04 11:16:04 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 22:02:21 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,18 @@
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	int		srclen;
-	int		destlen;
-	int		offset;
+	size_t	j;
 
 	i = 0;
-	srclen = ft_strlen(src);
-	destlen = ft_strlen(dest);
-	offset = destlen;
-	if (size == 0)
-		return (srclen);
-	while ((destlen + i) < size - 1)
+	j = 0;
+	while (dest[i] != '\0' && i < size)
+		i++;
+	while (src[j] != '\0' && i + j + 1 < size)
 	{
-		if (src[i] != '\0')
-		{
-			dest[offset] = src[i];
-			i++;
-			offset++;
-		}
-		else
-			break ;
+		dest[i + j] = src[j];
+		j++;
 	}
-	dest[offset] = '\0';
-	return (destlen + srclen);
+	if (i < size)
+		dest[i + j] = '\0';
+	return (i + ft_strlen(src));
 }

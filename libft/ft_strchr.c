@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 16:11:28 by ahorling      #+#    #+#                 */
-/*   Updated: 2021/04/11 19:54:09 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 22:36:38 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ char	*ft_strchr(const char *str, int c)
 	input = (char *)str;
 	while (*input != '\0')
 	{
-		if (*input == c)
+		if (*input == (char)c)
 			return (input);
 		input++;
 	}
+	if ((char)c == '\0')
+		return (input);
 	return (NULL);
 }
