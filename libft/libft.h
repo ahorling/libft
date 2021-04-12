@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/17 13:00:27 by ahorling      #+#    #+#                 */
-/*   Updated: 2021/04/12 18:00:05 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 20:08:29 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_itoa(int n);
 void	*ft_memchr(const void *str, int ch, size_t size);
 int		ft_memcmp(const void *str1, const void *str2, size_t size);
 void	*ft_memcpy(void *dest, const void *src, size_t size);
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t size);
 void	*ft_memset(void *str, int c, size_t size);
 char	*ft_strchr(const char *str, int c);

@@ -6,7 +6,7 @@
 #    By: alexander <alexander@student.codam.nl>       +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 10:25:30 by alexander     #+#    #+#                  #
-#    Updated: 2021/04/12 18:24:15 by alexander     ########   odam.nl          #
+#    Updated: 2021/04/12 20:08:56 by alexander     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = 	ft_atoi.c \
 		ft_memchr.c \
 		ft_memcmp.c \
 		ft_memcpy.c \
+		ft_memccpy.c \
 		ft_memmove.c \
 		ft_memset.c \
 		ft_putchar_fd.c \

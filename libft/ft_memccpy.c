@@ -6,7 +6,7 @@
 /*   By: alexander <alexander@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/04/12 19:24:51 by alexander     #+#    #+#                 */
-/*   Updated: 2021/04/12 19:52:17 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 20:08:07 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (i < n)
 	{
 		if (input[i] == c)
-			return (dest[i + 1]);
+			return (dest);
 		output[i] = input[i];
 		i++;
 	}
