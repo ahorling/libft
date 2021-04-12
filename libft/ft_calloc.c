@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/10 12:41:10 by ahorling      #+#    #+#                 */
-/*   Updated: 2020/12/04 11:12:34 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/12 20:28:38 by alexander     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	size_t	*pointer;
+	size_t	total;
 	size_t	i;
+	char	*allocated;
 
 	i = 0;
-	pointer = malloc(nitems * size);
-	while (pointer[i] <= nitems)
+	total = nitems * size;
+	allocated = malloc(total);
+	if (allocated == NULL)
+		return (NULL);
+	while (total - i > 0)
 	{
-		pointer[i] = 0;
+		allocated[i] = 0;
 		i++;
 	}
-	return (pointer);
+	return ((void *)allocated);
 }
