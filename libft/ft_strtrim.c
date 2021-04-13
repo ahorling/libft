@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/17 16:02:02 by ahorling      #+#    #+#                 */
-/*   Updated: 2020/12/01 14:41:05 by ahorling      ########   odam.nl         */
+/*   Updated: 2021/04/13 12:30:02 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 char	*ft_strtrim(char const *string, char const *set)
 {
-	int	endstring;
+	size_t	endstr;
+	char	*result;
 
-	if (string == NULL)
+	if (!string)
+		return (NULL);
+	if (string != 0 && !set)
 		return (ft_strdup(string));
-	while (ft_strchr(set, *string) != NULL)
+	while (ft_strchr(set, *string) && *string)
 		string++;
-	endstring = ft_strlen(string);
-	while (ft_strchr(set, string[endstring - 1]) != NULL)
-		endstring--;
-	return (ft_substr(string, 0, (endstring)));
+	endstr = ft_strlen(string);
+	while (ft_strchr(set, string[endstr - 1]) != NULL && endstr != 0)
+		endstr--;
+	result = ft_substr(string, 0, endstr);
+	return (result);
 }

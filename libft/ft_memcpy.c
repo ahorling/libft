@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/27 17:19:47 by ahorling      #+#    #+#                 */
-/*   Updated: 2021/04/11 20:01:13 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/13 10:44:16 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t size)
 	i = 0;
 	output = (char *)dest;
 	input = (char *)src;
+	if (dest == NULL && src == NULL)
+		return (NULL);
 	while (i < size)
 	{
 		output[i] = input[i];

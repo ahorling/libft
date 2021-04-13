@@ -6,7 +6,7 @@
 /*   By: alexander <alexander@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/04 14:28:11 by alexander     #+#    #+#                 */
-/*   Updated: 2021/04/12 23:03:25 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/13 12:52:33 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t length)
 	}
 	return (NULL);
 }
-

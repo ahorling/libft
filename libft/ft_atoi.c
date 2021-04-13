@@ -6,7 +6,7 @@
 /*   By: alexander <alexander@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/04 16:28:53 by alexander     #+#    #+#                 */
-/*   Updated: 2021/04/12 23:58:49 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/13 11:15:57 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,10 @@ int	ft_atoi(const char *str)
 			neg = -1;
 		i++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		value = value * 10 + str[i] - 48;
+		value = value * 10;
+		value = value + str[i] - '0';
 		i++;
 	}
 	return (value * neg);

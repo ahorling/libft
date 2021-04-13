@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/03 16:24:09 by ahorling      #+#    #+#                 */
-/*   Updated: 2020/12/04 11:23:17 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/13 11:01:29 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 char	*ft_strrchr(const char *str, int c)
 {
 	char	*input;
-	int		length;
 
 	input = (char *)str;
-	length = ft_strlen(str);
-	while (length != 0)
-	{
-		if (input[length] == c)
-			return (&input[length]);
-		else
-			length--;
-	}
-	return (NULL);
+	if (ft_strchr(str, c) == NULL)
+		return (NULL);
+	while (*input != '\0')
+		input++;
+	while (*input != c)
+		input--;
+	return (input);
 }

@@ -6,7 +6,7 @@
 /*   By: alexander <alexander@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/13 16:48:52 by alexander     #+#    #+#                 */
-/*   Updated: 2021/04/12 17:53:55 by alexander     ########   odam.nl         */
+/*   Updated: 2021/04/13 12:51:57 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,21 @@ static int	ft_length(int n)
 	return (chars);
 }
 
-char	*checkvalues(int n)
-{
-	if (n == -2147483648)
-		return ("-2147483648");
-	else if (n == 0)
-		return ("0");
-	return (0);
-}
-
 char	*ft_itoa(int n)
 {
 	char	*string;
-	int		i;
+	int		length;
 
-	i = ft_length(n);
-	string = (char *)malloc((i + 1) * sizeof(char));
-	if (string == NULL)
+	length = ft_length(n);
+	if (n == 0)
+		return (ft_strdup("0"));
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	string = (char *)malloc((length + 1) * sizeof(char));
+	if (!string)
 		return (NULL);
-	string[i] = '\0';
-	i--;
-	if (n == 0 || n == -2147483648)
-		return (checkvalues (n));
+	string[length] = '\0';
+	length--;
 	if (n < 0)
 	{
 		string[0] = '-';
@@ -59,9 +52,9 @@ char	*ft_itoa(int n)
 	}
 	while (n > 0)
 	{
-		string[i] = 48 + (n % 10);
+		string[length] = 48 + (n % 10);
 		n = n / 10;
-		i--;
+		length--;
 	}
 	return (string);
 }
