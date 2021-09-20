@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   ft_putstr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: alexander <alexander@student.codam.nl>       +#+                     */
+/*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/05 15:58:36 by alexander     #+#    #+#                 */
-/*   Updated: 2021/07/29 22:33:29 by alexander     ########   odam.nl         */
+/*   Created: 2021/09/20 15:08:26 by ahorling      #+#    #+#                 */
+/*   Updated: 2021/09/20 15:10:17 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+#include "libft.h"
+
+void	ft_putstr(char *string)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
-		return (1);
-	else
-		return (0);
+	int	len;
+
+	len = ft_strlen(string);
+	if (string != NULL)
+		write(1, string, len);
 }

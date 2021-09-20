@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   ft_numberleng.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: alexander <alexander@student.codam.nl>       +#+                     */
+/*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/05 15:58:36 by alexander     #+#    #+#                 */
-/*   Updated: 2021/07/29 22:33:29 by alexander     ########   odam.nl         */
+/*   Created: 2021/09/20 15:18:52 by ahorling      #+#    #+#                 */
+/*   Updated: 2021/09/20 15:38:21 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c)
+int	ft_numberleng(long long n)
 {
-	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+	int	length;
+
+	length = 0;
+	if (n == 0)
 		return (1);
-	else
-		return (0);
+	if (n < 0)
+	{
+		n = -n;
+		length++;
+	}
+	while (n > 0)
+	{
+		length++;
+		n = n / 10;
+	}
+	return (length);
 }
