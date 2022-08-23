@@ -6,14 +6,19 @@
 #    By: alexander <alexander@student.codam.nl>       +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 10:25:30 by alexander     #+#    #+#                  #
-#    Updated: 2021/10/08 17:43:09 by ahorling      ########   odam.nl          #
+#    Updated: 2022/08/23 17:43:04 by ahorling      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-CFLAGS = -Wall -Werror -Wextra
-CC = gcc
-SRC = 	ft_atoi.c \
+############### CONSTANTS ############
+
+NAME := libft.a
+CFLAGS := -Wall -Werror -Wextra
+CC := gcc
+
+############### SOURCES ##############
+
+SOURCES	:= 	ft_atoi.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
@@ -53,25 +58,46 @@ SRC = 	ft_atoi.c \
 		ft_numberleng.c \
 		ft_hexalower.c \
 		ft_hexaupper.c \
-		ft_hexlen.c \
 
-OBJS = $(SRC:.c=.o)
-HEADER = libft.h
+OBJECT_DIR	:=	./objects
+INCLUDE_DIR	:= 	./includes
+PRINTF_DIR	:=	./printf/libftprintf.a
+SOURCE_DIR	:=	./sources
+OBJECTS 	:= 	$(addprefix $(OBJECT_DIR)/, $(SOURCES:.c=.o))
+
+############### MESSAGES #############
+
+START_MESSAGE		:=	"Making $(NAME)"
+MESSAGE_FIN		:=	"LIBFT LIBRARY COMPLETE \n"
+MESSAGE_RM		:=	"CLEANED LIBFT LIBRARY \n"
+
+############### WORKINGS #############
 
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(PRINTF_DIR):
+	@echo $(START_MESSAGE)
+	@$(MAKE) -C printf/
 
-%.o: %.c $(HEADER)
-	$(CC) -c $(CFLAGS) -o $@ $<
+$(NAME): $(PRINTF_DIR) $(OBJECTS)
+	@ar rcs $@ $^
+	@ar -q $(PRINTF_DIR) $(OBJECTS)
+	@cp $(PRINTF_DIR) $(NAME)
+	@echo $(MESSAGE_FIN)
+
+$(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJECTS)
+	@$(MAKE) fclean -C printf/
+	@echo $(MESSAGE_RM)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@if [ -d "$(OBJECT_DIR)" ]; then rm -d $(OBJECT_DIR); fi
 
 re: fclean all
 
